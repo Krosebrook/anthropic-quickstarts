@@ -1,0 +1,52 @@
+name: Manual Sync (Safe)
+
+on:
+  workflow_dispatch: # Manual trigger only
+    inputs:
+      sync_platforms:
+        description: 'Sync to platforms'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  manual-sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+
+    - name: Check repository status
+      run: |
+        echo "Repository: ${{ github.repository }}"
+        echo "Branch: ${{ github.ref_name }}"
+        echo "Commit: ${{ github.sha }}"
+        echo "Files changed since last commit:"
+        git status --porcelain || echo "No changes"
+
+    - name: Manual commit (if requested)
+      if: github.event.inputs.sync_platforms == 'true'
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          git add .
+          git commit -m "🔧 Manual sync: $(date +'%Y-%m-%d %H:%M:%S')"
+          git push
+          echo "Changes committed and pushed"
+        else
+          echo "No changes to commit"
+        fi
+
+    - name: Status report
+      run: |
+        echo "✅ Manual sync completed successfully"
+        echo "No automated notifications sent"
+        echo "Repository is up to date"
