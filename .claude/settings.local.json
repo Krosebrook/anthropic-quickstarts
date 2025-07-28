@@ -2,7 +2,16 @@
   "permissions": {
     "allow": [
       "Bash(firebase login:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(git remote add:*)",
+      "Bash(gh repo clone:*)",
+      "Bash(git clone:*)",
+      "Bash(firebase:*)",
+      "Bash(npm run dev:*)",
+      "Bash(set PORT=3334)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "Bash(winget install:*)",
+      "Bash(java:*)"
     ],
     "deny": []
   }
