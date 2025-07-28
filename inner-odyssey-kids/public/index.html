@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#8b5cf6" />
+    <meta name="description" content="Inner Odyssey Kids - Interactive children's learning application with emotional intelligence training, educational content, and gamification elements." />
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,400&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="children education, emotional intelligence, kids learning, gamification, interactive learning, mindfulness for kids" />
+    <meta name="author" content="Inner Odyssey Team" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Inner Odyssey Kids - Interactive Learning Adventure" />
+    <meta property="og:description" content="Help children develop emotional intelligence, learn essential skills, and grow through interactive adventures and mindful activities." />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.png" />
+    <meta property="og:url" content="https://inner-odyssey-kids.vercel.app" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Inner Odyssey Kids" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Inner Odyssey Kids - Interactive Learning Adventure" />
+    <meta name="twitter:description" content="Help children develop emotional intelligence, learn essential skills, and grow through interactive adventures and mindful activities." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/twitter-image.png" />
+    
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Inner Odyssey Kids" />
+    
+    <!-- Android Chrome -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Inner Odyssey Kids" />
+    
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileColor" content="#8b5cf6" />
+    <meta name="msapplication-TileImage" content="%PUBLIC_URL%/mstile-144x144.png" />
+    
+    <!-- Disable automatic telephone number detection -->
+    <meta name="format-detection" content="telephone=no" />
+    
+    <title>Inner Odyssey Kids - Interactive Learning Adventure</title>
+    
+    <!-- Critical CSS for performance -->
+    <style>
+        /* Critical above-the-fold styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-family: 'Comic Neue', 'Nunito', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        body {
+            background-color: #f9fafb;
+            color: #1f2937;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+        
+        #root {
+            min-height: 100vh;
+        }
+        
+        /* Loading animation */
+        .loading-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .loading-spinner {
+            width: 3rem;
+            height: 3rem;
+            border: 4px solid #e5e7eb;
+            border-top: 4px solid #8b5cf6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            color: #8b5cf6;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+        
+        /* Hide loading when React loads */
+        .react-loaded .loading-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <noscript>
+        <div style="text-align: center; padding: 2rem; font-family: system-ui, sans-serif;">
+            <h1 style="color: #8b5cf6; margin-bottom: 1rem;">Inner Odyssey Kids</h1>
+            <p style="color: #6b7280; margin-bottom: 1rem;">
+                You need to enable JavaScript to use this interactive learning application.
+            </p>
+            <p style="color: #6b7280;">
+                Please enable JavaScript in your browser settings and refresh the page.
+            </p>
+        </div>
+    </noscript>
+    
+    <!-- Loading screen shown before React loads -->
+    <div class="loading-container" id="loading-screen">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading your learning adventure...</div>
+        <div style="color: #6b7280; font-size: 0.875rem; text-align: center; max-width: 300px;">
+            🌟 Preparing magical learning experiences just for you! 🚀
+        </div>
+    </div>
+    
+    <!-- React App Root -->
+    <div id="root"></div>
+    
+    <!-- Hide loading screen when React loads -->
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            // Hide loading screen after a minimum time to prevent flash
+            setTimeout(function() {
+                const loadingScreen = document.getElementById('loading-screen');
+                if (loadingScreen) {
+                    loadingScreen.style.opacity = '0';
+                    loadingScreen.style.transition = 'opacity 0.5s ease-out';
+                    setTimeout(function() {
+                        loadingScreen.remove();
+                        document.body.classList.add('react-loaded');
+                    }, 500);
+                }
+            }, 1000);
+        });
+        
+        // Service Worker Registration (for PWA)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('%PUBLIC_URL%/sw.js')
+                    .then(function(registration) {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+        
+        // Prevent zoom on double tap (iOS Safari)
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+        
+        // Accessibility: Focus management
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('using-keyboard');
+            }
+        });
+        
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('using-keyboard');
+        });
+    </script>
+    
+    <!-- Analytics placeholder (replace with actual analytics if needed) -->
+    <!-- Google Analytics, Mixpanel, etc. would go here -->
+</body>
+</html>

@@ -1,0 +1,505 @@
+/* Responsive Styles for Inner Odyssey Kids */
+
+/* Mobile First Approach - Base styles are for mobile */
+
+/* Small Mobile (320px - 374px) */
+@media (max-width: 374px) {
+  .app-container {
+    max-width: 320px;
+  }
+  
+  .main-content {
+    padding: var(--spacing-2);
+  }
+  
+  .welcome-header {
+    padding: var(--spacing-2);
+  }
+  
+  .welcome-title {
+    font-size: var(--font-size-base);
+  }
+  
+  .stats-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-1);
+  }
+  
+  .stat-badge {
+    font-size: 0.65rem;
+  }
+  
+  .card {
+    padding: var(--spacing-3);
+  }
+  
+  .btn {
+    padding: var(--spacing-2) var(--spacing-3);
+    font-size: var(--font-size-xs);
+  }
+  
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2);
+  }
+  
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Standard Mobile (375px - 424px) */
+@media (min-width: 375px) and (max-width: 424px) {
+  .app-container {
+    max-width: 375px;
+  }
+  
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .activity-item {
+    padding: var(--spacing-2) var(--spacing-3);
+  }
+  
+  .skill-item {
+    padding: var(--spacing-2) var(--spacing-3);
+  }
+}
+
+/* Large Mobile (425px - 767px) */
+@media (min-width: 425px) and (max-width: 767px) {
+  .app-container {
+    max-width: 425px;
+  }
+  
+  .main-content {
+    padding: var(--spacing-4);
+  }
+  
+  .welcome-header {
+    padding: var(--spacing-4);
+  }
+  
+  .welcome-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .card {
+    padding: var(--spacing-5);
+  }
+  
+  .btn {
+    padding: var(--spacing-3) var(--spacing-5);
+  }
+  
+  .modal-content {
+    padding: var(--spacing-8);
+  }
+  
+  .breathing-circle {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+/* Tablet Portrait (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .app-container {
+    max-width: 500px;
+    margin: var(--spacing-4) auto;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .main-content {
+    padding: var(--spacing-6);
+  }
+  
+  .welcome-header {
+    padding: var(--spacing-6);
+  }
+  
+  .welcome-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .card {
+    padding: var(--spacing-6);
+  }
+  
+  .grid-2 {
+    gap: var(--spacing-4);
+  }
+  
+  .grid-3 {
+    gap: var(--spacing-4);
+  }
+  
+  .grid-4 {
+    gap: var(--spacing-4);
+  }
+  
+  .btn {
+    padding: var(--spacing-4) var(--spacing-6);
+    font-size: var(--font-size-base);
+  }
+  
+  .modal-content {
+    max-width: 400px;
+    padding: var(--spacing-10);
+  }
+  
+  .breathing-circle {
+    width: 12rem;
+    height: 12rem;
+  }
+  
+  .bottom-nav {
+    position: relative;
+    border-top: none;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    margin-top: var(--spacing-4);
+  }
+  
+  .nav-item {
+    padding: var(--spacing-3) var(--spacing-4);
+  }
+  
+  .nav-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .nav-label {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* Tablet Landscape & Small Desktop (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .app-container {
+    max-width: 600px;
+    margin: var(--spacing-8) auto;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .main-content {
+    padding: var(--spacing-8);
+  }
+  
+  .welcome-header {
+    padding: var(--spacing-8);
+  }
+  
+  .welcome-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .card {
+    padding: var(--spacing-8);
+  }
+  
+  .grid {
+    gap: var(--spacing-6);
+  }
+  
+  .btn {
+    padding: var(--spacing-4) var(--spacing-8);
+    font-size: var(--font-size-lg);
+  }
+  
+  .modal-content {
+    max-width: 500px;
+    padding: var(--spacing-12);
+  }
+  
+  .breathing-circle {
+    width: 14rem;
+    height: 14rem;
+  }
+  
+  .activity-item {
+    padding: var(--spacing-4) var(--spacing-5);
+  }
+  
+  .skill-item {
+    padding: var(--spacing-4) var(--spacing-5);
+  }
+  
+  .bottom-nav {
+    padding: var(--spacing-4) var(--spacing-6);
+  }
+}
+
+/* Large Desktop (1280px+) */
+@media (min-width: 1280px) {
+  .app-container {
+    max-width: 700px;
+    margin: var(--spacing-12) auto;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .main-content {
+    padding: var(--spacing-10);
+  }
+  
+  .welcome-header {
+    padding: var(--spacing-10);
+  }
+  
+  .card {
+    padding: var(--spacing-10);
+  }
+  
+  .modal-content {
+    max-width: 600px;
+    padding: var(--spacing-16);
+  }
+  
+  .breathing-circle {
+    width: 16rem;
+    height: 16rem;
+  }
+}
+
+/* Landscape Orientation Adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .app-container {
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    padding-bottom: var(--spacing-16);
+  }
+  
+  .welcome-header {
+    padding: var(--spacing-2) var(--spacing-3);
+  }
+  
+  .welcome-title {
+    font-size: var(--font-size-base);
+  }
+  
+  .card {
+    padding: var(--spacing-2) var(--spacing-3);
+  }
+  
+  .breathing-circle {
+    width: 6rem;
+    height: 6rem;
+  }
+  
+  .modal-content {
+    max-height: 80vh;
+    padding: var(--spacing-4);
+  }
+  
+  .bottom-nav {
+    padding: var(--spacing-1) var(--spacing-3);
+  }
+  
+  .nav-item {
+    padding: var(--spacing-1);
+  }
+  
+  .nav-icon {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .nav-label {
+    font-size: 0.6rem;
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .welcome-header::before {
+    background-size: 50% 50%;
+  }
+  
+  .progress-fill::after {
+    background-size: 50% 100%;
+  }
+}
+
+/* Touch Device Adjustments */
+@media (hover: none) and (pointer: coarse) {
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .nav-item {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .avatar-button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .modal-close {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .activity-item {
+    min-height: 60px;
+  }
+  
+  .skill-item {
+    min-height: 80px;
+  }
+}
+
+/* Keyboard Navigation */
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .activity-item:hover {
+    transform: translateX(8px);
+  }
+  
+  .skill-item:hover {
+    transform: translateY(-2px);
+  }
+  
+  .nav-item:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .app-container {
+    max-width: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  
+  .bottom-nav {
+    display: none;
+  }
+  
+  .modal-overlay {
+    display: none;
+  }
+  
+  .main-content {
+    padding-bottom: 0;
+  }
+  
+  .welcome-header {
+    background: var(--gray-100) !important;
+    color: var(--gray-800) !important;
+  }
+  
+  .card-gradient,
+  .card-success,
+  .card-warning {
+    background: var(--white) !important;
+    color: var(--gray-800) !important;
+    border: 1px solid var(--gray-300) !important;
+  }
+  
+  .btn {
+    background: var(--white) !important;
+    color: var(--gray-800) !important;
+    border: 1px solid var(--gray-300) !important;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  .welcome-header::before,
+  .progress-fill::after,
+  .breathing-circle.inhale,
+  .breathing-circle.exhale {
+    animation: none;
+  }
+  
+  .btn:hover,
+  .card:hover,
+  .activity-item:hover,
+  .skill-item:hover,
+  .nav-item:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .welcome-header {
+    border: 2px solid var(--gray-800);
+  }
+  
+  .card {
+    border: 2px solid var(--gray-800);
+  }
+  
+  .btn {
+    border: 2px solid var(--gray-800);
+  }
+  
+  .progress-bar {
+    border: 1px solid var(--gray-800);
+  }
+  
+  .skill-progress {
+    border: 1px solid var(--gray-800);
+  }
+}
+
+/* Dark Mode Support (if implemented) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --white: #1f2937;
+    --gray-50: #111827;
+    --gray-100: #1f2937;
+    --gray-200: #374151;
+    --gray-300: #4b5563;
+    --gray-800: #f9fafb;
+    --gray-900: #ffffff;
+  }
+  
+  body {
+    background-color: var(--gray-100);
+    color: var(--gray-800);
+  }
+  
+  .app-container {
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+  }
+  
+  .card {
+    background: var(--gray-200);
+    border-color: var(--gray-300);
+  }
+  
+  .bottom-nav {
+    background: var(--gray-200);
+    border-color: var(--gray-300);
+  }
+  
+  .modal-content {
+    background: var(--gray-200);
+  }
+}
