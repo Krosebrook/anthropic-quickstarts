@@ -1,24 +1,6 @@
 {
   "version": 2,
-  "name": "flashfusion-oauth",
-  "builds": [
-    {
-      "src": "FlashFusion-Unified/functions/index.js",
-      "use": "@vercel/node",
-      "config": {
-        "maxLambdaSize": "50mb"
-      }
-    },
-    {
-      "src": "FlashFusion-Unified/dist/**",
-      "use": "@vercel/static"
-    }
-  ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/FlashFusion-Unified/functions/index.js"
-    },
     {
       "src": "/oauth-demo.html",
       "dest": "/FlashFusion-Unified/dist/oauth-demo.html"
@@ -27,19 +9,5 @@
       "src": "/(.*)",
       "dest": "/FlashFusion-Unified/dist/index.html"
     }
-  ],
-  "env": {
-    "GITHUB_CLIENT_ID": "@github-client-id",
-    "GITHUB_CLIENT_SECRET": "@github-client-secret",
-    "GITHUB_REDIRECT_URI": "@github-redirect-uri",
-    "NOTION_CLIENT_ID": "@notion-client-id",
-    "NOTION_CLIENT_SECRET": "@notion-client-secret",
-    "NOTION_REDIRECT_URI": "@notion-redirect-uri",
-    "SESSION_SECRET": "@session-secret"
-  },
-  "functions": {
-    "FlashFusion-Unified/functions/index.js": {
-      "maxDuration": 30
-    }
-  }
+  ]
 }
