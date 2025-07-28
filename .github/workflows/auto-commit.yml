@@ -53,9 +53,10 @@ jobs:
         Co-Authored-By: Claude <noreply@anthropic.com>"
         git push
 
-    - name: Sync to Notion (via webhook)
+    - name: Sync to All Platforms (Notion, Replit, Cursor)
       if: steps.verify-changed-files.outputs.changed == 'true'
       run: |
+        # Sync to Notion via webhook
         curl -X POST \
           -H "Content-Type: application/json" \
           -d '{
@@ -65,12 +66,41 @@ jobs:
               "repository": "${{ github.repository }}",
               "commit_sha": "${{ github.sha }}",
               "branch": "${{ github.ref_name }}",
-              "message": "Automated project sync",
-              "changes": "'$(git diff --name-only HEAD~1 HEAD | wc -l)' files changed"
+              "message": "Automated multi-platform sync",
+              "changes": "'$(git diff --name-only HEAD~1 HEAD | wc -l)' files changed",
+              "platforms": ["github", "notion", "replit", "cursor"]
             },
-            "source": "GitHub-Actions"
+            "source": "GitHub-Actions-MultiSync"
           }' \
-          https://flashfusion.co/api/zapier/incoming-webhook || echo "Webhook failed, continuing..."
+          https://flashfusion.co/api/zapier/incoming-webhook || echo "Notion webhook failed, continuing..."
+        
+        # Trigger Replit sync webhook (if configured)
+        if [ -n "$REPLIT_WEBHOOK_URL" ]; then
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d '{
+              "event": "github_update",
+              "repository": "${{ github.repository }}",
+              "commit": "${{ github.sha }}",
+              "branch": "${{ github.ref_name }}"
+            }' \
+            "$REPLIT_WEBHOOK_URL" || echo "Replit webhook failed, continuing..."
+        fi
+        
+        # Trigger Cursor workspace update
+        echo "Creating Cursor workspace configuration..."
+        echo '{
+          "folders": [
+            {"name": "FlashFusion-Unified", "path": "./FlashFusion-Unified"},
+            {"name": "Inner Odyssey Kids", "path": "./inner-odyssey-kids"},
+            {"name": "Customer Support Agent", "path": "./customer-support-agent"},
+            {"name": "Financial Data Analyst", "path": "./financial-data-analyst"}
+          ],
+          "settings": {
+            "cursor.ai.enabled": true,
+            "editor.formatOnSave": true
+          }
+        }' > anthropic-quickstarts.code-workspace
 
     - name: Deploy to Vercel (if needed)
       if: steps.verify-changed-files.outputs.changed == 'true'
