@@ -11,7 +11,11 @@
       "Bash(set PORT=3334)",
       "WebFetch(domain:docs.anthropic.com)",
       "Bash(winget install:*)",
-      "Bash(java:*)"
+      "Bash(java:*)",
+      "Bash(copy .env.example .env)",
+      "Bash(cp:*)",
+      "Bash(ls:*)",
+      "Bash(timeout 60 firebase deploy --only functions)"
     ],
     "deny": []
   }
