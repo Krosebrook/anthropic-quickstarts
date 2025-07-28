@@ -15,7 +15,11 @@
       "Bash(copy .env.example .env)",
       "Bash(cp:*)",
       "Bash(ls:*)",
-      "Bash(timeout 60 firebase deploy --only functions)"
+      "Bash(timeout 60 firebase deploy --only functions)",
+      "Bash(git config:*)",
+      "Bash(gh repo list:*)",
+      "Bash(npm run:*)",
+      "Bash(node:*)"
     ],
     "deny": []
   }
