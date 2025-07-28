@@ -1,0 +1,95 @@
+{
+  "version": 2,
+  "name": "anthropic-quickstarts",
+  "builds": [
+    {
+      "src": "FlashFusion-Unified/functions/index.js",
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    },
+    {
+      "src": "FlashFusion-Unified/scripts/zapier-automation-manager.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "customer-support-agent/app/**/*",
+      "use": "@vercel/next"
+    },
+    {
+      "src": "financial-data-analyst/app/**/*",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/flashfusion/(.*)",
+      "dest": "/FlashFusion-Unified/functions/index.js"
+    },
+    {
+      "src": "/api/zapier/(.*)",
+      "dest": "/FlashFusion-Unified/scripts/zapier-automation-manager.js"
+    },
+    {
+      "src": "/customer-support/(.*)",
+      "dest": "/customer-support-agent/app/$1"
+    },
+    {
+      "src": "/financial-analyst/(.*)",
+      "dest": "/financial-data-analyst/app/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "env": {
+    "OPENAI_API_KEY": "@openai-api-key",
+    "ANTHROPIC_API_KEY": "@anthropic-api-key",
+    "FIREBASE_PROJECT_ID": "@firebase-project-id",
+    "NOTION_TOKEN": "@notion-token",
+    "ZAPIER_WEBHOOK_SECRET": "@zapier-webhook-secret",
+    "ZAPIER_GITHUB_WEBHOOK_URL": "@zapier-github-webhook-url",
+    "ZAPIER_CHECKPOINT_WEBHOOK_URL": "@zapier-checkpoint-webhook-url",
+    "ZAPIER_AGENT_WEBHOOK_URL": "@zapier-agent-webhook-url",
+    "ZAPIER_DEPLOY_WEBHOOK_URL": "@zapier-deploy-webhook-url"
+  },
+  "functions": {
+    "FlashFusion-Unified/functions/index.js": {
+      "maxDuration": 30
+    },
+    "FlashFusion-Unified/scripts/zapier-automation-manager.js": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/flashfusion/:path*",
+      "destination": "https://us-central1-flashfusion-qzc85.cloudfunctions.net/flashfusionApi/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ],
+  "github": {
+    "autoDeployment": true,
+    "autoJobCancelation": true
+  }
+}
