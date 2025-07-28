@@ -22,5 +22,8 @@
             "statusBarVisibility": "inherit",
             "inheritDefault": "visible"
         }
-    }
+    },
+    "cSpell.words": [
+        "subproject"
+    ]
 }

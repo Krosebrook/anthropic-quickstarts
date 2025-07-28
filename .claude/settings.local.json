@@ -28,7 +28,9 @@
       "WebFetch(domain:developers.notion.com)",
       "Bash(git pull:*)",
       "Bash(git stash:*)",
-      "Bash(rm \"C:\\Users\\kyler\\anthropic-quickstarts\\.github\\workflows\\auto-commit.yml\")"
+      "Bash(rm \"C:\\Users\\kyler\\anthropic-quickstarts\\.github\\workflows\\auto-commit.yml\")",
+      "Bash(npm:*)",
+      "Bash(timeout:*)"
     ],
     "deny": []
   }
