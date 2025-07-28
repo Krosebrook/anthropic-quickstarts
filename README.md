@@ -26,6 +26,34 @@ An environment and tools that Claude can use to control a desktop computer. This
 
 [Go to Computer Use Demo Quickstart](./computer-use-demo)
 
+### 🚀 FlashFusion-Unified (Production Ready)
+
+**A comprehensive AI Business Operating System that transforms business ideas into automated revenue streams through 6 specialized AI agents.**
+
+**Status**: Backend 95% Complete | Frontend UI in Development
+
+**Live API**: `https://us-central1-tessa-designs-m3u6y.cloudfunctions.net/flashfusionApi`
+
+#### Key Features
+- **6 Specialized AI Agents**: Coordinator, Creator, Researcher, Automator, Analyzer, Optimizer
+- **Multi-Workflow Automation**: Development, Commerce, Content, Hybrid workflows
+- **Cost-Optimized**: GPT-3.5-turbo & Claude Haiku with 150 token limits, 10 req/min rate limiting
+- **Production-Ready Backend**: Firebase Functions, Firestore database, comprehensive error handling
+- **Enterprise-Grade**: Rate limiting, logging, health monitoring, security rules
+
+#### Tech Stack
+- **Backend**: Node.js/Express + Firebase Functions (✅ Live)
+- **Database**: Firestore with optimized indexes (✅ Configured)
+- **AI Integration**: OpenAI + Anthropic APIs (✅ Functional)
+- **Frontend**: Angular + TypeScript (🔧 In Development)
+
+#### Business Model
+- **Target Market**: Developers, E-commerce sellers, Content creators
+- **Pricing**: $97-$997/month tiers
+- **Revenue Goal**: $200K ARR by 2025
+
+[Go to FlashFusion-Unified Project](./FlashFusion-Unified)
+
 ## General Usage
 
 Each quickstart project comes with its own README and setup instructions. Generally, you'll follow these steps:
