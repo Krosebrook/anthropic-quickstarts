@@ -54,6 +54,27 @@ An environment and tools that Claude can use to control a desktop computer. This
 
 [Go to FlashFusion-Unified Project](./FlashFusion-Unified)
 
+### 🧒 Inner Odyssey Kids
+
+**An interactive children's learning application with emotional intelligence training, educational content, and gamification elements.**
+
+**Status**: Complete React TypeScript Application (1105 lines)
+
+#### Key Features
+- **Emotional Intelligence Training**: Breathing exercises, mindfulness activities, feeling identification
+- **Educational Skills**: Reading, Math, Science, Social Studies, Communication, Money & Life Skills
+- **Gamification System**: Points, XP, levels, badges, quests, and achievement tracking
+- **Parent Dashboard**: Progress monitoring, skill assessment, and learning analytics
+- **Interactive Content**: Quizzes, lessons, journal entries, and creative activities
+- **Age-Appropriate Design**: Colorful UI with child-friendly avatars and animations
+
+#### Tech Stack
+- **Frontend**: React + TypeScript with Lucide React icons
+- **Features**: State management, progress tracking, responsive design
+- **Target Audience**: Children ages 5-12 with parent oversight
+
+[Go to Inner Odyssey Kids Project](./inner-odyssey-kids)
+
 ## General Usage
 
 Each quickstart project comes with its own README and setup instructions. Generally, you'll follow these steps:
