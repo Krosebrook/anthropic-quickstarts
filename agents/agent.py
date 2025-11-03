@@ -18,6 +18,12 @@ from .utils.tool_util import execute_tools
 class ModelConfig:
     """Configuration settings for Claude model parameters."""
 
+    # Available models include:
+    # - claude-sonnet-4-20250514 (default)
+    # - claude-opus-4-20250514
+    # - claude-haiku-4-5-20251001
+    # - claude-3-5-sonnet-20240620
+    # - claude-3-haiku-20240307
     model: str = "claude-sonnet-4-20250514"
     max_tokens: int = 4096
     temperature: float = 1.0
@@ -99,9 +105,18 @@ class Agent:
             self.history.truncate()
             params = self._prepare_message_params()
 
+            # Merge headers properly - default beta header can be overridden by message_params
+            default_headers = {"anthropic-beta": "code-execution-2025-05-22"}
+            if "extra_headers" in params:
+                # Pop extra_headers from params and merge with defaults
+                custom_headers = params.pop("extra_headers")
+                merged_headers = {**default_headers, **custom_headers}
+            else:
+                merged_headers = default_headers
+
             response = self.client.messages.create(
                 **params,
-                extra_headers={"anthropic-beta": "code-execution-2025-05-22"}
+                extra_headers=merged_headers
             )
             tool_calls = [
                 block for block in response.content if block.type == "tool_use"
